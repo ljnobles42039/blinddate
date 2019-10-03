@@ -21,7 +21,10 @@ const userSchema = new Schema(
       type: String,
       required: false
     },       
-    city: String,
+    city: {
+      type: String,
+      enum: ['CDMX']
+    },       
     image: String
   },
   {

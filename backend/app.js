@@ -46,9 +46,13 @@ app.use(cookieParser());
 app.use(logger('dev'));
 
 const index = require('./routes/index');
-const auth = require('./routes/auth');
+const auth = require('./routes/auth')
+const event = require('./routes/event');
+const host = require('./routes/host')
 app.use('/', index);
-app.use('/', auth);
+app.use('/auth', auth);
+app.use('/event', event);
+app.use('/host', host);
 
 // Uncomment this line for production
 // app.get('/*', (req, res) => res.sendFile(__dirname + '/public/index.html'));

@@ -25,6 +25,19 @@ router.get('/profile', isAuth, (req, res, next) => {
     .catch((err) => res.status(500).json({ err }));
 });
 
+router.put('/profile/:id/edit', async (req, res) => {
+  try {
+      const userUpdated = await User.findByIdAndUpdate(req.params.id, { ...req.body }, { new: true })
+      console.log(userUpdated)
+      res.status(200).json({ userUpdated })
+  } catch (err) {  
+      console.log(err)
+      res.status(500).json({ err })
+  }
+});
+
+
+
 function isAuth(req, res, next) {
   req.isAuthenticated() ? next() : res.status(401).json({ msg: 'Log in first' });
 }
