@@ -6,6 +6,8 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Homepage from './components/home/Homepage';
 import Profile from './components/Profile';
+import HostHomepage from './components/host/HostHomepage';
+import HostProfile from './components/host/HostProfile';
 //import './App.css';
 
 const Router = () => (
@@ -15,6 +17,8 @@ const Router = () => (
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/profile" component={Profile} />
+      <Route exact path="/host/" component={HostHomepage} />
+      <Route exact path="/host/profile" component={HostProfile} />
     </Switch>
   </BrowserRouter>
 );

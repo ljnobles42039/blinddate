@@ -63,41 +63,19 @@ class Signup extends Component {
                     />
                   </Form.Item> 
                   <Form.Item>
-                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Budget</label>
+                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Role</label>
                     <br></br>
                     <select
                       onChange={this.handleInput}
                       type="text"
-                      name="budget"
+                      name="role"
                       style={{width: '20vw', height: '4vh', backgroundColor: "#f0efe9"}}
                     >
-                      <option>Select your budget</option>
-                      <option value='$'>$</option>
-                      <option value='$$'>$$</option>
-                      <option value='$$$'>$$$</option>
+                      <option>Select your Role</option>
+                      <option value='user'>user</option>
+                      <option value='host'>host</option>
                     </select>
-                  </Form.Item>
-                  <Form.Item>
-                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Last Name</label>
-                    <br></br>
-                    <Input
-                      onChange={this.handleInput}
-                      type="text"
-                      name="lastName"
-                      placeholder="Last Name"
-                      style={{width: '20vw', height: '4vh', backgroundColor: "#f0efe9"}}
-                    />
-                  </Form.Item>
-                  <Form.Item>
-                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>First name</label>
-                    <br></br>
-                    <Input
-                      onChange={this.handleInput}
-                      type="text"
-                      name="firstName"
-                      placeholder="First Name"
-                      style={{width: '20vw', height: '4vh', backgroundColor: "#f0efe9"}}/>
-                  </Form.Item>           
+                  </Form.Item>          
                   <Form.Item>
                     <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>City</label>
                     <br></br>

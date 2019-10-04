@@ -13,6 +13,10 @@ const userSchema = new Schema(
       required: true,
       unique: true
     },
+    role: {
+      type: String,
+      enum: ['user', 'host']
+    },
     budget: {
       type: String,
       enum: ['$', '$$', '$$$']
@@ -24,11 +28,17 @@ const userSchema = new Schema(
     lastName: {
       type: String,
       required: false
-    },             
+    }, 
+    phoneNumber: {
+      type: String
+    },
+    website: {
+      type: String
+    },            
     city: {
       type: String,
       enum: ['CDMX']
-    }, 
+    }
   },
   {
     timestamps: true,
