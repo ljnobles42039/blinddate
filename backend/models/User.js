@@ -13,6 +13,10 @@ const userSchema = new Schema(
       required: true,
       unique: true
     },
+    budget: {
+      type: String,
+      enum: ['$', '$$', '$$$']
+    },
     firstName: {
       type: String,
       required: false
@@ -20,12 +24,11 @@ const userSchema = new Schema(
     lastName: {
       type: String,
       required: false
-    },       
+    },             
     city: {
       type: String,
       enum: ['CDMX']
-    },       
-    image: String
+    }, 
   },
   {
     timestamps: true,
@@ -33,6 +36,6 @@ const userSchema = new Schema(
   }
 );
 
-userSchema.plugin(PLM, { usernameField: 'email' });
+userSchema.plugin(PLM, { usernameField: 'username' });
 
 module.exports = model('User', userSchema);

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Input, Form, Button } from 'antd';
+import { Card, Input, Form } from 'antd';
 import AUTH_SERVICE from '../services/index';
 import { MyContext } from '../context';
 import { Link } from 'react-router-dom'
@@ -21,6 +21,7 @@ class Login extends Component {
     e.preventDefault();
     AUTH_SERVICE.login(this.state.user)
       .then((response) => {
+        console.log(this.context)
         this.context.logUser(response.data.user);
         this.props.history.push('/profile');
       })

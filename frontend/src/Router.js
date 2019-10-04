@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 //import NotFound from './components/404/NotFound.js';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import Homepage from './components/Homepage';
+import Homepage from './components/home/Homepage';
 import Profile from './components/Profile';
 //import './App.css';
 

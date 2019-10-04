@@ -8,7 +8,7 @@ export default class Profile extends Component {
   state = {
     user: {
       username: '',
-      course: ''
+      city: ''
     }
   };
 

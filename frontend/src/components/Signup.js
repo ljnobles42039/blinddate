@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Input, Form } from 'antd';
 import AUTH_SERVICE from '../services/index';
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 
 class Signup extends Component {
   state = {
@@ -13,6 +13,7 @@ class Signup extends Component {
     const key = e.target.name;
     user[key] = e.target.value;
     this.setState({ user });
+    console.log(e.target.value)
   };
 
   onSubmit = (e) => {
@@ -24,7 +25,7 @@ class Signup extends Component {
       .catch((error) => {
         console.log(error);
       });
-      this.props.history.push('/profile');
+      this.props.history.push('/login');
   };
 
   render() {
@@ -42,6 +43,16 @@ class Signup extends Component {
                     <Input onChange={this.handleInput} type="text" name="username" style={{width: '20vw', backgroundColor: "#f0efe9"}} />
                   </Form.Item>
                   <Form.Item>
+                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Email</label>
+                    <br></br>
+                    <Input
+                      onChange={this.handleInput}
+                      type="text"
+                      name="email"
+                      style={{width: '20vw', backgroundColor: "#f0efe9"}}
+                    />
+                  </Form.Item> 
+                  <Form.Item>
                     <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Password</label>
                     <br></br>
                     <Input
@@ -50,39 +61,54 @@ class Signup extends Component {
                       name="password"
                       style={{width: '20vw', backgroundColor: "#f0efe9"}}
                     />
-                  </Form.Item>            
+                  </Form.Item> 
                   <Form.Item>
-                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Campus</label>
+                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Budget</label>
                     <br></br>
                     <select
                       onChange={this.handleInput}
                       type="text"
-                      name="campus"
-                      placeholder="Campus"
+                      name="budget"
                       style={{width: '20vw', height: '4vh', backgroundColor: "#f0efe9"}}
                     >
-                      <option value='Madrid'>Madrid</option>
-                      <option value='Barcelona'>Barcelona</option>
-                      <option value='Miami'>Miami</option>
-                      <option value='Paris'>Paris</option>
-                      <option value='Berlin'>Berlin</option>
-                      <option value='Amsterdam'>Amsterdam</option>
-                      <option value='Mexico'>Mexico</option>
-                      <option value='Sao'>Sao</option>
+                      <option>Select your budget</option>
+                      <option value='$'>$</option>
+                      <option value='$$'>$$</option>
+                      <option value='$$$'>$$$</option>
                     </select>
                   </Form.Item>
                   <Form.Item>
-                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Courses</label>
+                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Last Name</label>
+                    <br></br>
+                    <Input
+                      onChange={this.handleInput}
+                      type="text"
+                      name="lastName"
+                      placeholder="Last Name"
+                      style={{width: '20vw', height: '4vh', backgroundColor: "#f0efe9"}}
+                    />
+                  </Form.Item>
+                  <Form.Item>
+                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>First name</label>
+                    <br></br>
+                    <Input
+                      onChange={this.handleInput}
+                      type="text"
+                      name="firstName"
+                      placeholder="First Name"
+                      style={{width: '20vw', height: '4vh', backgroundColor: "#f0efe9"}}/>
+                  </Form.Item>           
+                  <Form.Item>
+                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>City</label>
                     <br></br>
                     <select
                       onChange={this.handleInput}
                       type="text"
-                      name="course"
-                      placeholder="Course"style={{width: '20vw', height: '4vh', backgroundColor: "#f0efe9"}}
+                      name="city"
+                      style={{width: '20vw', height: '4vh', backgroundColor: "#f0efe9"}}
                     >
-                      <option value='WebDev'>WebDev</option>
-                      <option value='UX/UI'>UX/UI</option>
-                      <option value='Data Analytics'>Data Analytics</option>
+                      <option>Select a City</option>
+                      <option value='CDMX'>CDMX</option>
                     </select>
                   </Form.Item>
                 </Form>
@@ -96,7 +122,7 @@ class Signup extends Component {
                   <Form onSubmit={this.onSubmit} style={{marginTop:'10vh', width: '20vw'}}>
                   <p>I'm going to say this without saying this, but if you sign up you have to know that we own you.  But still do it!!</p>
                     <Form.Item>
-                      <Input type="submit" value="Log In" style={{width: '20vw', marginRight: '10vw', marginTop: '1vh'}} />
+                      <Input type="submit" value="Sign Up" style={{width: '20vw', marginRight: '10vw', marginTop: '1vh'}} />
                     </Form.Item>
                   </Form>
                 </div>

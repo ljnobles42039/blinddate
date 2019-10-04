@@ -3,6 +3,10 @@ const router = express.Router();
 const Host = require('../models/Host');
 const passport = require('../config/passport');
 
+router.get('/', (req, res, next) => {
+  res.status(200).json({ msg: 'Working' });
+});
+
 router.post('/signup', (req, res, next) => {
   Host.register(req.body, req.body.password)
     .then((host) => res.status(201).json({ host }))

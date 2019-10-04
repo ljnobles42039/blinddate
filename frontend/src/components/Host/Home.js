@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { MyContext } from '../context';
+import { MyContext } from '../../context';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom'
 
@@ -23,6 +23,3 @@ export default class Homepage extends Component {
 }
 
 Homepage.contextType = MyContext;
-
- 
-
