@@ -1,35 +1,24 @@
-const { Schema, model } = require('mongoose');
-const PLM = require('passport-local-mongoose');
 
-const ReviewSchema = new Schema(
+const { Schema, model } = require("mongoose");
+
+const commentSchema = new Schema(
   {
-    username: {
+    body: {
       type: String,
-      required: true,
-      unique: true
+      required: true
     },
-    email: {
-      type: String,
-      required: true,
-      unique: true
+    post: {
+      type: Schema.Types.ObjectId,
+      ref: "Event"
     },
-    firstName: {
-      type: String,
-      required: false
-    }, 
-    lastName: {
-      type: String,
-      required: false
-    },       
-    city: String,
-    image: String
+    author: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
+    }
   },
   {
     timestamps: true,
     versionKey: false
   }
 );
-
-userSchema.plugin(PLM, { usernameField: 'email' });
-
-module.exports = model('User', userSchema);
+module.exports = model("Comment", commentSchema);

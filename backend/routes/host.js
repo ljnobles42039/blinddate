@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Host = require('../models/Host');
+//const Host = require('../models/Host');
 const passport = require('../config/passport');
 
 router.get('/', (req, res, next) => {

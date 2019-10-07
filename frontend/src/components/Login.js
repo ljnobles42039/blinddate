@@ -54,22 +54,12 @@ class Login extends Component {
                       style={{width: '20vw', backgroundColor: "#f0efe9"}}
                     />
                   </Form.Item>
-                </Form>
-                <p style={{fontSize: '.9rem', width: '20vw', color: "#bdbdbb"}}>If you do not have an account you can create your account <Link to="/signup">here</Link></p>
-              </div>
-            </div>
-            <div style={{ width: '30vw'}}>
-              <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
-                <h1 style={{lineHeight: '2.2rem', marginTop: "7vh"}}>Hello!!</h1>
-                <p style={{fontSize: '2rem', lineHeight: '2.2rem'}}>Awesome to have you at Ironprofile again</p>
-                <div style={{margin: '0', padding: "0"}}>
-                  <Form onSubmit={this.onSubmit} style={{marginTop:'10vh', width: '20vw'}}>
                   <p>I'm going to say this without saying this, but if you sign up you have to know that we own you.  But still do it!!</p>
                     <Form.Item>
                       <Input type="submit" value="Log In" style={{width: '20vw', marginRight: '10vw', marginTop: '1vh'}} />
                     </Form.Item>
-                  </Form>
-                </div>
+                </Form>
+                <p style={{fontSize: '.9rem', width: '20vw', color: "#bdbdbb"}}>If you do not have an account you can create your account <Link to="/signup">here</Link></p>
               </div>
             </div>
           </div>

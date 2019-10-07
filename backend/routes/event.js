@@ -27,9 +27,10 @@ router.get('/add',async (req, res, next) => {
 // Create Event Route
 router.post('/', async (req, res) => {
   const event = new Event({
+    author: req.body.author,
     title: req.body.title,
     description: req.body.description,
-    eventDate: req.body.eventDate,
+    date: req.body.date,
     timeofDay: req.body.timeOfDat,
     cost: req.body.cost,
     typeOfEvent: req.body.typeOfEvent,
@@ -37,9 +38,10 @@ router.post('/', async (req, res) => {
     image: req.body.image
   })
   await Event.create({ 
+    author: req.body.author,
     title: req.body.title,
     description: req.body.description,
-    eventDate: req.body.eventDate,
+    date: req.body.date,
     timeofDay: req.body.timeOfDat,
     cost: req.body.cost,
     typeOfEvent: req.body.typeOfEvent,

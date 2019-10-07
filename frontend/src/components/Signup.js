@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { Card, Input, Form } from 'antd';
+import { Card, Input, Form, Switch, Button } from 'antd';
 import AUTH_SERVICE from '../services/index';
 //import { Link } from 'react-router-dom'
 
 class Signup extends Component {
   state = {
-    user: {}
+    user: {},
+    checked: false
   };
 
   handleInput = (e) => {
@@ -18,14 +19,25 @@ class Signup extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+    console.log(this.state);
     AUTH_SERVICE.signup(this.state.user)
       .then((response) => {
         console.log(response.data);
+        this.props.history.push('/login');
       })
       .catch((error) => {
         console.log(error);
       });
-      this.props.history.push('/login');
+    
+  };
+
+  onChange = checked => {
+    this.setState({ checked });
+    if (!checked) {
+      this.setState({ user: { role: 'USER' } })
+    } else {
+      this.setState({ user: { role: 'PROVIDER' } })
+    }
   };
 
   render() {
@@ -36,12 +48,13 @@ class Signup extends Component {
             <div style={{ width: '50vw', marginLeft: '4vw'}} >
               <p style={{fontSize: '3rem', marginTop: "4vh"}}>Sign Up</p>
               <div>
+                <div>
+                  Are you a Provider? <p />{" "}
+                  <Switch checkedChildren="PROVIDER" unCheckedChildren="USER" defaultChecked={false} onChange={this.onChange}>
+                    {" "}
+                  </Switch>
+                </div>
                 <Form onSubmit={this.onSubmit} style={{marginTop:'5vh'}}>
-                  <Form.Item>
-                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Username</label>
-                    <br></br>
-                    <Input onChange={this.handleInput} type="text" name="username" style={{width: '20vw', backgroundColor: "#f0efe9"}} />
-                  </Form.Item>
                   <Form.Item>
                     <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Email</label>
                     <br></br>
@@ -63,19 +76,40 @@ class Signup extends Component {
                     />
                   </Form.Item> 
                   <Form.Item>
-                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Role</label>
+                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Username or Company</label>
                     <br></br>
-                    <select
+                    <Input
                       onChange={this.handleInput}
                       type="text"
-                      name="role"
-                      style={{width: '20vw', height: '4vh', backgroundColor: "#f0efe9"}}
-                    >
-                      <option>Select your Role</option>
-                      <option value='user'>user</option>
-                      <option value='host'>host</option>
-                    </select>
-                  </Form.Item>          
+                      name="username"
+                      style={{width: '20vw', backgroundColor: "#f0efe9"}}
+                    />
+                  </Form.Item>  
+                  {this.state.checked ? (
+                  <Form.Item>
+                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Phone Number</label>
+                    <br></br>
+                    <Input
+                      onChange={this.handleInput}
+                      type="text"
+                      name="phoneNumber"
+                      style={{width: '20vw', backgroundColor: "#f0efe9"}}
+                    />
+                  </Form.Item>  
+                  ) : null } 
+                  {this.state.checked ? (
+                  <Form.Item>
+                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Website</label>
+                    <br></br>
+                    <Input
+                      onChange={this.handleInput}
+                      type="text"
+                      name="website"
+                      style={{width: '20vw', backgroundColor: "#f0efe9"}}
+                    />
+                  </Form.Item>  
+                  ) : null } 
+                  
                   <Form.Item>
                     <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>City</label>
                     <br></br>
@@ -89,21 +123,10 @@ class Signup extends Component {
                       <option value='CDMX'>CDMX</option>
                     </select>
                   </Form.Item>
+                  <Form.Item>
+                    <Input type="submit" value="Sign Up" style={{width: '20vw', marginRight: '10vw', marginTop: '1vh'}} />
+                  </Form.Item>
                 </Form>
-              </div>
-            </div>
-            <div style={{ width: '30vw'}}>
-              <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
-                <h1 style={{lineHeight: '2.2rem', marginTop: "7vh"}}>What Up Though!!</h1>
-                <p style={{fontSize: '2rem', lineHeight: '2.2rem'}}>Welcome to Ironprofile</p>
-                <div style={{margin: '0', padding: "0"}}>
-                  <Form onSubmit={this.onSubmit} style={{marginTop:'10vh', width: '20vw'}}>
-                  <p>I'm going to say this without saying this, but if you sign up you have to know that we own you.  But still do it!!</p>
-                    <Form.Item>
-                      <Input type="submit" value="Sign Up" style={{width: '20vw', marginRight: '10vw', marginTop: '1vh'}} />
-                    </Form.Item>
-                  </Form>
-                </div>
               </div>
             </div>
           </div>
@@ -112,5 +135,4 @@ class Signup extends Component {
     );
   }
 }
-
 export default Signup;
