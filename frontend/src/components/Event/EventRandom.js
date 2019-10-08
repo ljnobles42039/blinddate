@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import EventCard from './EventCard'
 import { Link } from 'react-router-dom';
-import { Button } from 'antd'
 import axios from 'axios'
+import { Card,  Button } from 'antd'
 
-
-export default class EventAll extends Component {
+export default class EventRandom extends Component {
   state = {
     events: [],
     isLoaded: false
@@ -13,7 +11,7 @@ export default class EventAll extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:3000/event')
+      .get('http://localhost:3000/event/random')
       .then(({ data }) => {
         console.log(data)
         this.setState({ events: data.event, isLoaded: true });
@@ -23,14 +21,10 @@ export default class EventAll extends Component {
 
   render() {
     const { isLoaded, events } = this.state
-    console.log('larry doesnt know whats happening',events)
     return (
         
       <div>
-        <h1>All Events</h1>
-        <Link to="/">
-          <Button type="primary">Go back to Home</Button>
-        </Link>
+        <h1>Chooose Your Adventure</h1>
         <div
           style={{
             display: 'flex',
@@ -41,7 +35,11 @@ export default class EventAll extends Component {
             height: '100vh'
           }}>
             {isLoaded && events.map((event) => (
-                <EventCard key={event._id} event={event} /> 
+              <Card style={{ width: '250px', margin: '2rem', height: "370px" }}>
+                <Link to={`/event/${event._id}`}>
+                  <Button>View event Details</Button>
+                </Link>
+              </Card>
             ))}
         </div>
       </div>

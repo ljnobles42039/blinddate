@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { Card, Input, Form, Switch, Button } from 'antd';
+import { Card, Input, Form, Switch } from 'antd';
 import AUTH_SERVICE from '../services/index';
-//import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class Signup extends Component {
   state = {
@@ -127,6 +127,7 @@ class Signup extends Component {
                     <Input type="submit" value="Sign Up" style={{width: '20vw', marginRight: '10vw', marginTop: '1vh'}} />
                   </Form.Item>
                 </Form>
+                <p style={{fontSize: '.9rem', width: '20vw', color: "#bdbdbb"}}>If you already have an account, you can sign in <Link to="/login">here</Link></p>
               </div>
             </div>
           </div>

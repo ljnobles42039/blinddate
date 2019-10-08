@@ -21,13 +21,9 @@ class Login extends Component {
     e.preventDefault();
     AUTH_SERVICE.login(this.state.user)
       .then((response) => {
-        console.log(this.state.user)
+        console.log(this.context)
         this.context.logUser(response.data.user);
-        if (response.data.user.role === "USER") {
-            this.props.history.push('/profile');            
-        } else {
-            this.props.history.push('/host/profile');            
-        }
+        this.props.history.push('/profile');
       })
       .catch((error) => {
         console.log(error);
@@ -58,19 +54,21 @@ class Login extends Component {
                       style={{width: '20vw', backgroundColor: "#f0efe9"}}
                     />
                   </Form.Item>
-                  <Form.Item>
+                  <p>I'm going to say this without saying this, but if you sign up you have to know that we own you.  But still do it!!</p>
+                    <Form.Item>
                       <Input type="submit" value="Log In" style={{width: '20vw', marginRight: '10vw', marginTop: '1vh'}} />
                     </Form.Item>
                 </Form>
                 <p style={{fontSize: '.9rem', width: '20vw', color: "#bdbdbb"}}>If you do not have an account you can create your account <Link to="/signup">here</Link></p>
               </div>
             </div>
-
           </div>
         </Card>
       </div>
     );
   }
 }
+
 Login.contextType = MyContext;
+
 export default Login;

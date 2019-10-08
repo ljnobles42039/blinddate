@@ -9,23 +9,23 @@ router.get('/', async (req, res) => {
     .catch((err) => res.status(500).json({ err }));
 })
 
-// Individual Event Route
-router.get('/detail/:id', async (req, res) => {
-    const { id } = req.params
-    const events = await Event.findById(id)
-    .then((event) => res.status(201).json({ event }))
-    .catch((err) => res.status(500).json({ err }));
-});
-
-// New Event
-router.get('/add',async (req, res, next) => {
+router.get('/random',async (req, res, next) => {
 	const events = await Event.find()
     .then((event) => res.status(201).json({ event }))
     .catch((err) => res.status(500).json({ err }));
 }) 
 
+// Individual Event Route
+router.get('/:id',  (req, res) => {
+  const { id } = req.params
+  Event.findById(id)
+  .then((event) => res.status(201).json( event ))
+  .catch((err) => res.status(500).json({ err }));
+});
+
+
 // Create Event Route
-router.post('/', async (req, res) => {
+router.post('/add', async (req, res) => {
   const event = new Event({
     author: req.body.author,
     title: req.body.title,
