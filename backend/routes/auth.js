@@ -25,16 +25,27 @@ router.get('/profile', isAuth, (req, res, next) => {
     .catch((err) => res.status(500).json({ err }));
 });
 
-router.put('/profile/:id/edit', async (req, res) => {
+router.post('/edit', async (req, res) => {
   try {
-      const userUpdated = await User.findByIdAndUpdate(req.params.id, { ...req.body }, { new: true })
-      console.log(userUpdated)
-      res.status(200).json({ userUpdated })
+      const updatedUser = await User.findByIdAndUpdate(req.params.id, { ...req.body }, { new: true })
+      console.log(updatedUser)
+      res.status(200).json({ updatedUser })
   } catch (err) {  
       console.log(err)
       res.status(500).json({ err })
   }
 });
+
+// Delete User Page
+router.delete('/delete', async (req, res) => {
+  let user
+  try {
+    user = await User.findById(req.params.id)
+    await user.remove()
+  } catch {
+    ((err) => res.status(500).json({ err }));
+  }
+})
 
 
 

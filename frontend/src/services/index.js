@@ -13,12 +13,18 @@ const AUTH_SERVICE = {
   logOut: async () => {
     return await SERVICE.get('auth/logout');
   },
-  edit: async (updateUser) => {
-      return await SERVICE.post('auth/edit', updateUser)
+  edit: async (updatedUser) => {
+      return await SERVICE.post('auth/edit', updatedUser)
   },
   loggedin: async () => {
        return await SERVICE.get('auth/loggedin')
-  }
+  },
+  deleteUser: async ()=>{
+    return await SERVICE.delete('auth/delete', )
+  },
+  edituser: async (form)=>{
+    return await SERVICE.post('auth/edit/', form)
+  },
 
 }
 

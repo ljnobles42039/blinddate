@@ -35,7 +35,8 @@ export default class EventRandom extends Component {
             height: '100vh'
           }}>
             {isLoaded && events.map((event) => (
-              <Card style={{ width: '250px', margin: '2rem', height: "370px" }}>
+              <Card style={{ width: '250px', margin: '2rem', height: "370px" }} cover={<img alt="example" src='/../logo.png' />}
+              >
                 <Link to={`/event/${event._id}`}>
                   <Button>View event Details</Button>
                 </Link>

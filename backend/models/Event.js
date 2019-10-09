@@ -21,6 +21,9 @@ const eventSchema = new Schema(
       type: String,
       enum: ['$', '$$', '$$$']
     }, 
+    address: {
+      type: String
+    },
     geolocation: {
       geoType: { type: String },
       coordinates: [Number],

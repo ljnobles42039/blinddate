@@ -28,8 +28,8 @@ export default class EventAll extends Component {
         
       <div>
         <h1>All Events</h1>
-        <Link to="/">
-          <Button type="primary">Go back to Home</Button>
+        <Link to="/event/add">
+          <Button type="primary">Create Another Event</Button>
         </Link>
         <div
           style={{

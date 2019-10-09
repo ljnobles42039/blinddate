@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Card, Input, Form } from 'antd';
+import { Input, Form, Button } from 'antd';
 import axios from 'axios';
 //import AUTH_SERVICE from '../../services/index';
- import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 class CreateEvent extends Component {
@@ -52,10 +52,15 @@ class CreateEvent extends Component {
   render() {
     return (
       <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row', width: '100vw', height: '100vh'}}>
-        <Card style={{ width: '80vw', height: '80vh', backgroundImage: 'url("/assets/oval-bg.png")', backgroundSize: 'cover'  }}>
-          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'row'}}>
-            <div style={{ width: '50vw', marginLeft: '4vw'}} >
-              <p style={{fontSize: '3rem', marginTop: "4vh"}}>Sign Up</p>
+        <div style={{ width: '80vw', height: '80vh'  }}>
+          <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
+            <div style={{ width: '20vw'}}>
+                <div>
+                <Link to="/event"><img src = '/logo.png' alt='logo' style={{ height: '240px', width: 'auto'}}></img></Link> 
+                </div>
+                <Button type="danger" style={{width: '10vw'}} onClick={this.logout}>Log out</Button>
+            </div><div style={{ width: '50vw', marginLeft: '4vw'}} >
+              <p style={{fontSize: '3rem', marginTop: "4vh"}}>Create Event</p>
               <div>
                 <Form onSubmit={this.onSubmit} style={{marginTop:'5vh'}}>
                   <Form.Item>
@@ -76,7 +81,7 @@ class CreateEvent extends Component {
                       onChange={this.handleInput}
                       type="text"
                       name="description"
-                      style={{ backgroundColor: "#f0efe9"}}
+                      style={{ backgroundColor: "#f0efe9", heigth: '10vh'}}
                     />
                   </Form.Item> 
                   <Form.Item>
@@ -88,9 +93,19 @@ class CreateEvent extends Component {
                       name="author"
                       style={{width: '20vw', backgroundColor: "#f0efe9"}}
                     />
-                  </Form.Item>   
+                  </Form.Item>  
                   <Form.Item>
-                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>City</label>
+                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Address</label>
+                    <br></br>
+                    <Input
+                      onChange={this.handleInput}
+                      type="text"
+                      name="address"
+                      style={{width: '20vw', backgroundColor: "#f0efe9"}}
+                    />
+                  </Form.Item>  
+                  <Form.Item>
+                    <label style={{fontSize: '1rem', color: "#bdbdbb", padding: "0"}}>Cost</label>
                     <br></br>
                     <select
                       onChange={this.handleInput}
@@ -113,7 +128,7 @@ class CreateEvent extends Component {
                       name="typeOfEvent"
                       style={{width: '20vw', height: '4vh', backgroundColor: "#f0efe9"}}
                     >
-                      <option>Select a Cost</option>
+                      <option>Select an Event</option>
                       <option value='Dining'>Dining</option>
                       <option value='Sport'>Sport</option>
                       <option value='Adventure'>Adventure</option>
@@ -141,7 +156,7 @@ class CreateEvent extends Component {
                       name="timeOfDay"
                       style={{width: '20vw', height: '4vh', backgroundColor: "#f0efe9"}}
                     >
-                      <option>Select a Cost</option>
+                      <option>Select a Time of Day</option>
                       <option value='AllDay'>AllDay</option>
                       <option value='8:00A-11:59A'>8:00A-11:59A</option>
                       <option value='12:00P-8:00P'>12:00P-8:00P</option>
@@ -166,8 +181,8 @@ class CreateEvent extends Component {
               </div>
             </div>
           </div>
-        </Card>
-        <p style={{fontSize: '.9rem', width: '20vw', color: "#bdbdbb"}}>Or straight to the events <Link to="/event">here</Link></p>
+        </div>
+        
       </div>      
     );
   }
