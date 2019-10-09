@@ -13,7 +13,7 @@ export default class EventAll extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:3000/event')
+      .get('https://rocky-tundra-82590.herokuapp.com/event')
       .then(({ data }) => {
         console.log(data)
         this.setState({ events: data.event, isLoaded: true });

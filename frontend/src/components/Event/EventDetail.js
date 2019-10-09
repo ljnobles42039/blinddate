@@ -13,7 +13,7 @@ export default class EventDetail extends Component {
 
   componentDidMount() {
     axios
-    .get(`http://localhost:3000/event/${this.props.match.params.id}`)
+    .get(`https://rocky-tundra-82590.herokuapp.com/event/${this.props.match.params.id}`)
     .then (( data ) => {
       this.setState({ event: data.data})
       

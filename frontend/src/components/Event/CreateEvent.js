@@ -42,7 +42,7 @@ class CreateEvent extends Component {
     const { event } = this.state;
     console.log(event);
 
-    axios.post('http://localhost:3000/event/add', event)
+    axios.post('https://rocky-tundra-82590.herokuapp.com/event/add', event)
       .then(res => console.log(res.data));
       
       window.location = '/event';

@@ -11,7 +11,7 @@ export default class EventRandom extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:3000/event/random')
+      .get('https://rocky-tundra-82590.herokuapp.com/event/random')
       .then(({ data }) => {
         console.log(data)
         this.setState({ events: data.event, isLoaded: true });
