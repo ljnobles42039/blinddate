@@ -12,6 +12,7 @@ export default class Homepage extends Component {
         <div style={{ width: '80vw', height: '70vh',  backgroundImage: 'url("/background.jpeg")', backgroundSize: 'cover'  }}>
           <div style={{marginTop: '5vh',marginLeft: '27vw', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', width: '35vw', alignContent: 'center'}}>
             <p style={{fontSize: '3rem', mAarginLeft:'6vw'}}>Blind Date</p>
+            <br></br>
             <p style={{fontSize: '2rem', color: "white"}} >Take a chance with interesting experiences in your city</p>
             <Link to="/signup"> <Button type="submit" value="signup" style={{ width: '30vw', marginRight: '10vw', marginTop: '6vh'}}>Sign up</Button></Link>
             <Link to="/login"> <Button type="submit" value="Login" style={{ width: '30vw', marginRight: '10vw', marginTop: '6vh'}}>Login</Button></Link>

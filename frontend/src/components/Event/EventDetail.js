@@ -32,7 +32,7 @@ export default class EventDetail extends Component {
         <br></br>
         <Text strong>Description: <span><Text type="secondary">{this.state.event.description}</Text></span></Text>
         <br></br>
-        <Text strong>Address: <span><Text type="secondary">{this.state.event.adress}</Text></span></Text>
+        <Text strong>Address: <span><Text type="secondary">{this.state.event.address}</Text></span></Text>
         <br></br>
         <Text strong>Date: <span><Text type="secondary">{this.state.event.date}</Text></span></Text>
         <br></br>
